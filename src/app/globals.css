@@ -1,2 +1,154 @@
 @import "tailwindcss";
-@plugin "daisyui";
+
+@plugin "daisyui" {
+  themes: false;
+}
+
+/* ---------- RentRig light: warm paper + ink + safety amber ---------- */
+@plugin "daisyui/theme" {
+  name: "rentrig";
+  default: true;
+  prefersdark: false;
+  color-scheme: light;
+  --color-base-100: #fbf8f3;
+  --color-base-200: #f3eee4;
+  --color-base-300: #e6dccb;
+  --color-base-content: #1b2236;
+  --color-primary: #f59e0b;
+  --color-primary-content: #1a1204;
+  --color-secondary: #14213d;
+  --color-secondary-content: #fbf8f3;
+  --color-accent: #0f766e;
+  --color-accent-content: #ffffff;
+  --color-neutral: #14213d;
+  --color-neutral-content: #f3eee4;
+  --color-info: #2563eb;
+  --color-info-content: #ffffff;
+  --color-success: #15803d;
+  --color-success-content: #ffffff;
+  --color-warning: #d97706;
+  --color-warning-content: #1a1204;
+  --color-error: #dc2626;
+  --color-error-content: #ffffff;
+  --radius-selector: 0.75rem;
+  --radius-field: 0.75rem;
+  --radius-box: 1.25rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+}
+
+/* ---------- RentRig dark: night site ---------- */
+@plugin "daisyui/theme" {
+  name: "rentrig-dark";
+  default: false;
+  prefersdark: true;
+  color-scheme: dark;
+  --color-base-100: #0e1420;
+  --color-base-200: #151d2c;
+  --color-base-300: #222c3e;
+  --color-base-content: #e9e5dc;
+  --color-primary: #fbbf24;
+  --color-primary-content: #1a1204;
+  --color-secondary: #e9e5dc;
+  --color-secondary-content: #0e1420;
+  --color-accent: #2dd4bf;
+  --color-accent-content: #04201d;
+  --color-neutral: #1e293b;
+  --color-neutral-content: #e9e5dc;
+  --color-info: #60a5fa;
+  --color-info-content: #0b1220;
+  --color-success: #4ade80;
+  --color-success-content: #052e14;
+  --color-warning: #fbbf24;
+  --color-warning-content: #1a1204;
+  --color-error: #f87171;
+  --color-error-content: #2a0707;
+  --radius-selector: 0.75rem;
+  --radius-field: 0.75rem;
+  --radius-box: 1.25rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+}
+
+@theme inline {
+  --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-heading), ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-base-100 text-base-content font-sans antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display tracking-tight;
+  }
+  ::selection {
+    @apply bg-primary text-primary-content;
+  }
+}
+
+@layer components {
+  /* one consistent section heading style across the whole site */
+  .section-eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-accent;
+  }
+  .section-title {
+    @apply font-display text-3xl font-extrabold leading-tight md:text-4xl;
+  }
+  .section-sub {
+    @apply mt-3 max-w-2xl text-base leading-relaxed text-base-content/70;
+  }
+  .container-x {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+  .card-surface {
+    @apply rounded-3xl border border-base-300 bg-base-100 shadow-[0_1px_0_rgba(20,33,61,0.04),0_12px_32px_-18px_rgba(20,33,61,0.25)];
+  }
+  /* use together with daisyUI: className="btn btn-primary btn-rig" */
+  .btn-rig {
+    @apply rounded-full px-6 font-bold shadow-[0_8px_20px_-8px_rgba(245,158,11,0.7)];
+  }
+  .btn-pill {
+    @apply rounded-full px-6 font-bold;
+  }
+}
+
+@layer utilities {
+  /* blueprint grid used behind hero & cards */
+  .bg-blueprint {
+    background-image: linear-gradient(to right, color-mix(in oklab, var(--color-base-content) 7%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in oklab, var(--color-base-content) 7%, transparent) 1px, transparent 1px);
+    background-size: 36px 36px;
+  }
+  /* safety hazard stripe */
+  .hazard-stripe {
+    background: repeating-linear-gradient(-45deg, var(--color-primary) 0 14px, var(--color-secondary) 14px 28px);
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+  .scrollbar-none {
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
