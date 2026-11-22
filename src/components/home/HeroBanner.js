@@ -115,7 +115,7 @@ export default function HeroBanner({ stats }) {
           <div className="hazard-stripe absolute -right-4 -top-4 h-24 w-24 rounded-3xl opacity-90" />
           <div className="relative overflow-hidden rounded-[2rem] border-4 border-base-100 bg-secondary shadow-2xl">
             <img src={HERO_IMG} alt="Engineer inspecting rental equipment" className="aspect-[4/5] w-full object-cover sm:aspect-[5/5]" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent" />
+            <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent" />
           </div>
 
           <motion.div

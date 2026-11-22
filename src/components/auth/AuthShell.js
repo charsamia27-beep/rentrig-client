@@ -8,7 +8,7 @@ export default function AuthShell({ title, subtitle, children, image }) {
       <div className="card-surface grid overflow-hidden lg:grid-cols-2">
         <div className="relative hidden min-h-[620px] lg:block">
           <img src={image} alt="" className="absolute inset-0 h-full w-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#14213d] via-[#14213d]/70 to-[#14213d]/10" />
+          <div className="absolute inset-0 bg-linear-to-t from-[#14213d] via-[#14213d]/70 to-[#14213d]/10" />
           <div className="absolute inset-x-0 bottom-0 p-10 text-white">
             <p className="section-eyebrow text-amber-400!">RentRig marketplace</p>
             <h2 className="mt-3 text-4xl font-extrabold leading-tight">Everything you need for the job – without buying it.</h2>
