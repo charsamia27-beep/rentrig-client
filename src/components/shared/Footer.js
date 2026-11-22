@@ -13,7 +13,7 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer className="mt-24 bg-neutral text-neutral-content">
+    <footer className="no-print mt-24 bg-neutral text-neutral-content">
       <div className="hazard-stripe h-2 w-full opacity-90" />
       <div className="container-x grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-12">
         <div className="lg:col-span-4">
