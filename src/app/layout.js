@@ -1,6 +1,7 @@
 import { Bricolage_Grotesque, Manrope } from "next/font/google";
 import "./globals.css";
 import { themeScript } from "@/lib/theme";
+import Providers from "@/components/shared/Providers";
 
 const heading = Bricolage_Grotesque({ subsets: ["latin"], variable: "--font-heading", display: "swap" });
 const body = Manrope({ subsets: ["latin"], variable: "--font-body", display: "swap" });
@@ -25,7 +26,9 @@ export default function RootLayout({ children }) {
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
-      <body className="min-h-screen">{children}</body>
+      <body className="min-h-screen">
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }
