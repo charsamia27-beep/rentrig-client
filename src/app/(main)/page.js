@@ -1,3 +1,11 @@
-export default function Home() {
-  return <main className="p-10 text-3xl font-bold">RentRig</main>;
+import HeroBanner from "@/components/home/HeroBanner";
+import { serverGet } from "@/lib/server-api";
+
+export default async function HomePage() {
+  const stats = await serverGet("/stats", {});
+  return (
+    <>
+      <HeroBanner stats={stats} />
+    </>
+  );
 }
