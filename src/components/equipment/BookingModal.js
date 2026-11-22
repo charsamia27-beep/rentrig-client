@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 import { TbX, TbCalendarTime, TbCreditCard, TbLock } from "react-icons/tb";
 import api, { errorMessage } from "@/lib/api";
-import { calculateRental, formatCurrency, todayISO, unitOf } from "@/lib/utils";
+import { calculateRental, escapeHtml, formatCurrency, todayISO, unitOf } from "@/lib/utils";
 
 export default function BookingModal({ item, user, onClose }) {
   const today = todayISO();
@@ -63,7 +63,7 @@ export default function BookingModal({ item, user, onClose }) {
         title: "Confirm your rental",
         html: `
           <div style="text-align:left;font-size:15px;line-height:1.9">
-            <b>${item.name}</b><br/>
+            <b>${escapeHtml(item.name)}</b><br/>
             ${form.startDate} → ${form.endDate} (${quote.rentalDays} day${quote.rentalDays > 1 ? "s" : ""})<br/>
             ${quote.quantity} unit(s) × ${quote.billingUnits} ${unitOf(quote.rentalType)}(s) × ${formatCurrency(quote.rentalPrice)}<br/>
             <span style="font-size:22px;font-weight:800">Total: ${formatCurrency(quote.totalAmount)}</span>

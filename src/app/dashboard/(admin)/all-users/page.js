@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 import { TbBan, TbSearch, TbTrash, TbUserCheck } from "react-icons/tb";
 import api, { errorMessage } from "@/lib/api";
-import { formatDate } from "@/lib/utils";
+import { escapeHtml, formatDate } from "@/lib/utils";
 import Pagination from "@/components/shared/Pagination";
 import { useDashboardUser } from "@/components/dashboard/DashboardShell";
 import { Avatar, EmptyState, ErrorBox, PageHeader, StatusBadge, TableCard, TableSkeleton } from "@/components/dashboard/ui";
@@ -42,7 +42,7 @@ export default function AllUsersPage() {
     if (next === u.role) return;
     const r = await Swal.fire({
       title: "Change role?",
-      html: `Make <b>${u.name}</b> ${next === "admin" ? "an" : "a"} <b>${next}</b>?`,
+      html: `Make <b>${escapeHtml(u.name)}</b> ${next === "admin" ? "an" : "a"} <b>${next}</b>?`,
       icon: "question",
       showCancelButton: true,
       confirmButtonText: "Change role",

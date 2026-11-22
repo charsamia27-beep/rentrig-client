@@ -40,3 +40,7 @@ export const FALLBACK_IMAGE =
   encodeURIComponent(
     `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect width="400" height="300" fill="#e6dccb"/><g fill="none" stroke="#14213d" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" opacity=".35"><path d="M120 210h160M150 210l20-60h60l20 60M180 150l10-40h20l10 40"/></g></svg>`
   );
+
+/** Escape user-provided text before putting it inside SweetAlert `html` */
+export const escapeHtml = (str = "") =>
+  String(str).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
